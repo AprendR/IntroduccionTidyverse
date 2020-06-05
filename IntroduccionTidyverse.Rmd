@@ -150,6 +150,12 @@ background-image: url(img/tidyverse_hexs.png)
 
 4. Diseñado para que los humanos lo entiendan lo usen
 
+--
+
+---
+class: center, middle, inverse
+
+# Pero antes ...
 
 ---
 
@@ -167,6 +173,20 @@ Las estructuras mas utilizadas en **R** son:
 Existen recientemente estructuras derivadas del **dataframe** como son los **tibble** y los **data.table**.
 E incluso hay paquetes que generan sus propios formatos para transformar datos. Si bien estos puede ser útil en casos
 específicos la mejor opción en R es utilizar las estructuras consolidadas en el lenguaje.
+
+---
+# Adopta la programación funcional
+
+Si bien **R** es un lenguaje que puede programarse creando objetos y clases. R brilla cuando se prefiere una
+programación funcional.
+
+Una programación funcional le da prioridad a las funciones lo que favorece una logica directa.
+
+Las funciones ademas se adaptan a la _pipe_ sacando provecho de la concatenación de las mismas.
+
+En R se recomienda el uso de funciones que abstraen a las clasicas estructuras de control de iteraciones como 
+el bucle **loop**.
+
 
 ---
 
@@ -207,11 +227,14 @@ mi_lista <- list(
 )
 ```
 
-
 ---
+class: inverse
+background-image: url(img/maggrit_bckgr.png)
 
-# Funciones simples para tareas complejas con el operador pipe
-### %>%
+# Funciones simples para tareas complejas
+### El operador pipe %>%
+
+
 
 > No importa cuán complejas y pulidas sean las operaciones individuales, a menudo es la calidad del **pegamento**
 > lo que determina más directamente el poder del sistema.
@@ -219,6 +242,7 @@ mi_lista <- list(
 > *- Hal Abelson*
 
 ---
+background-image: url(img/maggrit_bckgr.png)
 
 # Funciones simples para tareas complejas con el operador pipe
 ### %>%
@@ -234,6 +258,12 @@ mtcars %>%
   
 ```
 
+---
+background-image: url(img/maggrit_bckgr.png)
+
+# Funciones simples para tareas complejas con el operador pipe
+### %>%
+
 Cabe mencionar que para guardar el resultado al inicio de la secuencia se debe asignar a una variable.
 
 ```{r}
@@ -243,26 +273,12 @@ mi_nueva_vairable <- mtcars %>%
   
 ```
 
-
 ---
-# Adopta la programación funcional
-
-Si bien **R** es un lenguaje que puede programarse creando objetos y clases. R brilla cuando se prefiere una
-programación funcional.
-
-Una programación funcional le da prioridad a las funciones lo que favorece una logica directa.
-
-Las funciones ademas se adaptan a la _pipe_ sacando provecho de la concatenación de las mismas.
-
-En R se recomienda el uso de funciones que abstraen a las clasicas estructuras de control de iteraciones como 
-el bucle **loop**.
-
-
----
+class: inverse
 
 # Diseñado para que los humanos lo entiendan lo usen
 
-> No importa cuán complejas y pulidas sean las operaciones individuales, a menudo es la calidad del **pegamento**
-> lo que determina más directamente el poder del sistema.
+> Los programas deben estar escritos para que las personas los lean, y solo de manera incidental para que 
+> las computadoras los ejecuten.
 >
 > *- Hal Abelson*

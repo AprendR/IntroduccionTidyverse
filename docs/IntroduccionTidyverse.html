@@ -3,7 +3,7 @@
   <head>
     <title>Introducción a Tidyverse</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Edgar Morales" />
+    <meta name="author" content="Azalea Reyes y Edgar Morales" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/middlebury.css" rel="stylesheet" />
     <link href="libs/remark-css/middlebury-fonts.css" rel="stylesheet" />
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 
 # Introducción a Tidyverse
 ## dplyr para unos datos Tidy
-### Edgar Morales
+### Azalea Reyes y Edgar Morales
 ### Aprendr
 
 ---
@@ -72,6 +72,7 @@ Los paquetes en R se instalan con un solo comando que descarga los paquetes de u
 Por lo tanto la instalación de cualquier paquete en R se puede hacer con un comando:
 
 
+
 ```r
 install.packages("tidyverse")
 ```
@@ -97,6 +98,35 @@ Se escribe el nombre del paquete y se presiona el botón de **Install**
 
 ![](img/instalacion_grafica_2.png)
 ]
+
+---
+
+# Usar una librería
+
+Una vez instalado el siguiente paso es **cargar** la librería en memoria
+
+
+```r
+library(tidyverse)
+```
+
+```
+## ── Attaching packages ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──
+```
+
+```
+## ✓ ggplot2 3.3.0     ✓ purrr   0.3.3
+## ✓ tibble  3.0.1     ✓ stringr 1.4.0
+## ✓ tidyr   1.0.3     ✓ forcats 0.5.0
+## ✓ readr   1.3.1
+```
+
+```
+## ── Conflicts ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+```
+
 
 ---
 background-image: url(img/tidyverse_hexs.png)
@@ -138,6 +168,12 @@ background-image: url(img/tidyverse_hexs.png)
 
 4. Diseñado para que los humanos lo entiendan lo usen
 
+--
+
+---
+class: center, middle, inverse
+
+# Pero antes ...
 
 ---
 
@@ -149,33 +185,12 @@ Las estructuras mas utilizadas en **R** son:
 
 - vectores
 - matrices
-- dataframe
+- dataframes
 - listas
 
-Existen recientemente estructuras derivadas del **dataframe** de estos como son los **tibble** y los **data.table**.
+Existen recientemente estructuras derivadas del **dataframe** como son los **tibble** y los **data.table**.
 E incluso hay paquetes que generan sus propios formatos para transformar datos. Si bien estos puede ser útil en casos
 específicos la mejor opción en R es utilizar las estructuras consolidadas en el lenguaje.
-
----
-
-# Construye funciones simples para resolver tareas complejas con el uso de la pipa
-## %&gt;%
-
-&gt; No importa cuán complejas y pulidas sean las operaciones individuales, a menudo es la calidad del **pegamento**
-&gt; lo que determina más directamente el poder del sistema.
-&gt;
-&gt; *- Hal Abelson*
-
----
-
-# Construye funciones simples para resolver tareas complejas con el uso de la pipa
-## %&gt;%
-
-Entre las ventajas de usar la sintaxis y estructura de tidyverse esta el uso del operador **pipe**.
-Este operador permite encadenar una serie de comandos, analogo a los pasos de una receta, que empiezan por la entrada
-de una estructura de dato y termina con el producto derivado de los procesos por los que paso.
-
-Cabe mencionar que la ejecución secuencial 
 
 ---
 # Adopta la programación funcional
@@ -193,10 +208,109 @@ el bucle **loop**.
 
 ---
 
-# Diseñado para que los humanos lo entiendan lo usen
+# Ejemplos de estructuras
+
+### Vector
+
+```r
+mi_vector &lt;- c("Este", "es", "un", "vector")
+```
+
+### Matrices
+
+
+```r
+mi_matriz &lt;- matrix(1:6, nrow = 2, ncol = 3)
+```
+
+---
+
+# Ejemplos de estructuras
+
+### DataFrames
+
+
+```r
+mi_dataframe &lt;- data.frame(
+  numeros = c(1, 2, 3, 4, 5),
+  letras = c("a", "b", "c", "d", "e"),
+  cierto_falso = c(TRUE, FALSE, T, T, F)
+)
+```
+
+### Listas
+
+
+```r
+mi_lista &lt;- list(
+  mi_vector = mi_vector,
+  mi_dataframe = mi_dataframe,
+  mi_matriz = mi_matriz
+)
+```
+
+---
+class: inverse
+background-image: url(img/maggrit_bckgr.png)
+
+# Funciones simples para tareas complejas
+### El operador pipe %&gt;%
+
+
 
 &gt; No importa cuán complejas y pulidas sean las operaciones individuales, a menudo es la calidad del **pegamento**
 &gt; lo que determina más directamente el poder del sistema.
+&gt;
+&gt; *- Hal Abelson*
+
+---
+background-image: url(img/maggrit_bckgr.png)
+
+# Funciones simples para tareas complejas con el operador pipe
+### %&gt;%
+
+Entre las ventajas de usar la sintaxis y estructura de tidyverse esta el uso del operador **pipe** (**%&gt;%**).
+Este operador permite encadenar una serie de comandos, analogo a los pasos de una receta, que empiezan por la entrada
+de una estructura de datos y termina con el producto derivado de los procesos por los que paso.
+
+
+```r
+mtcars %&gt;%
+  group_by(cyl) %&gt;%
+  summarise(autos_por_cilindraje = n())
+```
+
+```
+## # A tibble: 3 x 2
+##     cyl autos_por_cilindraje
+##   &lt;dbl&gt;                &lt;int&gt;
+## 1     4                   11
+## 2     6                    7
+## 3     8                   14
+```
+
+---
+background-image: url(img/maggrit_bckgr.png)
+
+# Funciones simples para tareas complejas con el operador pipe
+### %&gt;%
+
+Cabe mencionar que para guardar el resultado al inicio de la secuencia se debe asignar a una variable.
+
+
+```r
+mi_nueva_vairable &lt;- mtcars %&gt;%
+  group_by(cyl) %&gt;%
+  summarise(autos_por_cilindraje = n())
+```
+
+---
+class: inverse
+
+# Diseñado para que los humanos lo entiendan lo usen
+
+&gt; Los programas deben estar escritos para que las personas los lean, y solo de manera incidental para que 
+&gt; las computadoras los ejecuten.
 &gt;
 &gt; *- Hal Abelson*
     </textarea>
