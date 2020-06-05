@@ -335,7 +335,7 @@ pi %>% round(6)
 ---
 class: inverse
 
-# Diseñado para que los humanos lo entiendan
+# Diseñado para humanos
 
 <br>
 
@@ -346,9 +346,9 @@ class: inverse
 
 ---
 
-# Diseñado para que los humanos lo entiendan
+# Diseñado para humanos
 
-Una base incluida con **R** es `mtcars` que contiene información del desempeño, cilindraje y otras medidas
+Una base incluida con **R** es `mtcars` <sup>4</sup> que contiene información del desempeño, cilindraje y otras medidas
 para diferentes marcas de autos:
 
 ### Primeros renglones de dataset
@@ -357,12 +357,48 @@ para diferentes marcas de autos:
 head(mtcars)
 ```
 
+.footnote[
+[4] Para conocer mas sobre el dataset [?mtcars](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html)
+]
 ---
 
-# Diseñado para que los humanos lo entiendan
+# Diseñado para humanos
+
+Varias funciones sobre una estructura de datos, por ejemplo el peso (wt) de los carros:
+
+
+```{r}
+# 1) se ordenan los datos wt de menor a mayor
+# 2) se calcula las sumas acumuladas
+# 3) de calcula la diferencia de la suma acumulada
+# 4) se normalizan los datos
+# 5) se calcula la media
+
+mean(log(diff(cumsum(sort((mtcars$wt))))))
+```
+
+---
+
+# Diseñado para humanos
+
+Ahora, lo mismo con el operador **%>%**
+
+```{r}
+mtcars$wt %>% 
+  sort() %>% 
+  cumsum() %>% 
+  diff() %>% 
+  log() %>% 
+  mean()
+```
+
+
+---
+
+# Diseñado para humanos
 
 Si quisieramos calcular la media de las variables mpg (millas por galón) y hp (poder-caballos de fuerza),
-pero sólo de los coches de 4 y 6 cilindros (cyl) y con un peso pequeño, menor a 3k lbs (w)...
+pero sólo de los coches de 4 y 6 cilindros (cyl) y ligeros (menos de 3k lbs)
 
 ```{r}
 # 1) Seleccionamos las variables:
@@ -380,7 +416,7 @@ mtcars_media_mpg_hp
 
 ---
 
-# Diseñado para que los humanos lo entiendan
+# Diseñado para humanos
 
 ### Usando el comando pipe
 
