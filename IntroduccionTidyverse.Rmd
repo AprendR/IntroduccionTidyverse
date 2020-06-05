@@ -193,6 +193,10 @@ mi_vector <- c("Este", "es", "un", "vector")
 mi_matriz <- matrix(1:6, nrow = 2, ncol = 3)
 ```
 
+.footnote[
+[Ejercicios en línea](https://rextester.com/MMQWU70881)
+]
+
 ---
 
 # Ejemplos de estructuras
@@ -216,6 +220,10 @@ mi_lista <- list(
   mi_matriz = mi_matriz
 )
 ```
+
+.footnote[
+[Ejercicios en línea](https://rextester.com/MMQWU70881)
+]
 
 ---
 # Adopta la programación funcional
