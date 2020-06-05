@@ -3,7 +3,7 @@
   <head>
     <title>Introducción a Tidyverse</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Azalea Reyes y Edgar Morales" />
+    <meta name="author" content="Edgar Morales" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/middlebury.css" rel="stylesheet" />
     <link href="libs/remark-css/middlebury-fonts.css" rel="stylesheet" />
@@ -15,7 +15,7 @@ class: center, middle, inverse, title-slide
 
 # Introducción a Tidyverse
 ## dplyr para unos datos Tidy
-### Azalea Reyes y Edgar Morales
+### Edgar Morales
 ### Aprendr
 
 ---
@@ -64,7 +64,7 @@ en memoría para su uso dentro de una sesión o script.
 
 # Instalación de paquetes
 
-Los paquetes en R se instalan con un solo comando que se conecta a un repositorio **CRAN**.
+Los paquetes en R se instalan con un solo comando que descarga los paquetes de un repositorio **CRAN**.
 
 &gt; CRAN : Es un conjunto de servidores que mantienen versiones 
 &gt; actualizadas de código y documentación &lt;sup&gt;3&lt;/sup&gt;
@@ -99,23 +99,27 @@ Se escribe el nombre del paquete y se presiona el botón de **Install**
 ]
 
 ---
+background-image: url(img/tidyverse_hexs.png)
 
 # Tidyverse según el manifiesto de Hadley Wickham
 
-[tidyverse](https://github.com/tidyverse) es la forma rápida y elegante de convertir  `R` base en una herramienta mejorada, 
-rediseñada por Hadley Wickham / Rstudio. 
-El desarrollo de todos los paquetes incluidos en `tidyverse` sigue las reglas principales del [manifiesto](https://mran.microsoft.com/web/packages/tidyverse/vignettes/manifesto.html) de [The tidy tools](https://mran.microsoft.com/web/packages/tidyverse/vignettes/manifesto.html) .
+[Tidyverse](https://github.com/tidyverse) es la forma rápida y elegante de convertir  `R` base en una herramienta mejorada, 
+rediseñada por Hadley Wickham / Rstudio.
+
+El desarrollo de todos los paquetes incluidos en `tidyverse` sigue las reglas principales del [manifiesto](https://mran.microsoft.com/web/packages/tidyverse/vignettes/manifesto.html) de [The tidy tools](https://mran.microsoft.com/web/packages/tidyverse/vignettes/manifesto.html).
+
 
 Según Wickham:
 
 &gt; El tidyverse es un conjunto de paquetes que funcionan en **armonía** porque
  comparten representaciones de datos comunes y diseño de API. Si tuviera que traducir tidyverse sería algo como una 
  ***diversidad ordenada***. El paquete **tidyverse** está diseñado para facilitar la instalación y carga de los 
-paquetes principales desde el tidyverse en un solo comando.  El mejor lugar para aprender sobre todos los paquetes en el
-tidyverse y cómo encajan en un universo armónico o en un flujo de tranajo ordenado es en libro
-[R for Data Science](https://r4ds.had.co.nz/).
+paquetes principales desde el tidyverse en un solo comando.
+&gt;
+&gt;[R for Data Science](https://r4ds.had.co.nz/).
 
 ---
+background-image: url(img/tidyverse_hexs.png)
 
 # Principios Básicos
 
@@ -124,7 +128,7 @@ tidyverse y cómo encajan en un universo armónico o en un flujo de tranajo orde
 
 --
 
-2. Construye funciones simples para resolver tareas complejas con el uso de la pipa %&gt;%
+2. Construye funciones simples para resolver tareas complejas con el uso de operador pipe **%&gt;%**
 
 --
 
@@ -137,24 +141,41 @@ tidyverse y cómo encajan en un universo armónico o en un flujo de tranajo orde
 
 ---
 
-# Reutilización de estructuras de datos existentes
+# Estructuras de datos existentes
 
-Al programar en R se puede sacar ventaja de las estructuras de datos que maneja este lenguaje.
+Al programar en **R** se puede sacar ventaja de las estructuras de datos que maneja este lenguaje.
 
-En especial de los dataframes, listas y vectores.
+Las estructuras mas utilizadas en **R** son:
 
-Existen recientemente estructuras derivadas de estos como son lso **tibble** y los **data.table**. E incluso hay
-paquetes que generan sus propios formatos para manipular datos. Si bien esto puede ser útil en casos especificos
-la mejor opción en R es utilizar las estructuras consolidadas en el lenguaje.
+- vectores
+- matrices
+- dataframe
+- listas
+
+Existen recientemente estructuras derivadas del **dataframe** de estos como son los **tibble** y los **data.table**.
+E incluso hay paquetes que generan sus propios formatos para transformar datos. Si bien estos puede ser útil en casos
+específicos la mejor opción en R es utilizar las estructuras consolidadas en el lenguaje.
 
 ---
 
-# Construye funciones simples para resolver tareas complejas con el uso de la pipa %&gt;%
+# Construye funciones simples para resolver tareas complejas con el uso de la pipa
+## %&gt;%
 
 &gt; No importa cuán complejas y pulidas sean las operaciones individuales, a menudo es la calidad del **pegamento**
 &gt; lo que determina más directamente el poder del sistema.
 &gt;
 &gt; *- Hal Abelson*
+
+---
+
+# Construye funciones simples para resolver tareas complejas con el uso de la pipa
+## %&gt;%
+
+Entre las ventajas de usar la sintaxis y estructura de tidyverse esta el uso del operador **pipe**.
+Este operador permite encadenar una serie de comandos, analogo a los pasos de una receta, que empiezan por la entrada
+de una estructura de dato y termina con el producto derivado de los procesos por los que paso.
+
+Cabe mencionar que la ejecución secuencial 
 
 ---
 # Adopta la programación funcional
