@@ -1,0 +1,179 @@
+---
+title: "Introducción a Tidyverse"
+subtitle: "dplyr para unos datos Tidy"
+author: "Azalea Reyes y Edgar Morales"
+institute: "Aprendr"
+
+output:
+  xaringan::moon_reader:
+    css: ["libs/custom.css", default, middlebury, middlebury-fonts]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(
+    inputFile,
+    encoding = encoding, 
+    output_dir = "docs",
+    output_options=list(self_contained=FALSE, lib_dir="docs/libs"))})
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: center, middle, inverse
+
+# tidy
+### /taɪdi/
+
+### Having everything in the right place and arranged in good order
+
+#### (Tener todo en su lugar y organizado adecuadamente)
+
+---
+
+# Librería o Paquetes
+
+Es normal hacer uso indistinto del nombre librería y paquete en el **argot de R**. 
+Sin embargo existe una diferencia sutíl entre estos dos terminos:
+
+.pull-left[
+
+### librería <sup>1</sup>:
+Se refiere al directorio en donde se encuentran los paquetes, ademas de ser el nombre de la función que los carga
+en memoría para su uso dentro de una sesión o script.
+
+]
+
+.pull-right[
+### paquete <sup>2</sup>:
+ Es una colección de datos, funciones y código compilado. Incluso se le puede conocer así al paquete comprimido que 
+ contiene ya sea el código fuente o funciones.
+]
+
+
+.footnote[
+[1] [Diferencias Paquete-Librería](https://www.r-bloggers.com/packages-v-libraries-in-r/)
+
+[2] [Quick-R Definition](https://www.statmethods.net/interface/packages.html)
+]
+
+---
+
+# Instalación de paquetes
+
+Los paquetes en R se instalan con un solo comando que se conecta a un repositorio **CRAN**.
+
+> CRAN : Es un conjunto de servidores que mantienen versiones 
+> actualizadas de código y documentación <sup>3</sup>
+
+Por lo tanto la instalación de cualquier paquete en R se puede hacer con un comando:
+
+```{r eval=FALSE}
+install.packages("tidyverse")
+```
+
+.footnote[
+[3] [CRAN _(Comprehensive R Archive Network)_](https://cran.r-project.org/)
+]
+
+---
+
+# Descargar paquetes Interfaz Gráfica
+
+.pull-left[
+
+Se abre la opción **install** que despliega un cuadro de dialogo
+
+![](img/instalacion_grafica_1.png)
+]
+
+.pull-right[
+
+Se escribe el nombre del paquete y se presiona el botón de **Install**
+
+![](img/instalacion_grafica_2.png)
+]
+
+---
+
+# Tidyverse según el manifiesto de Hadley Wickham
+
+[tidyverse](https://github.com/tidyverse) es la forma rápida y elegante de convertir  `R` base en una herramienta mejorada, 
+rediseñada por Hadley Wickham / Rstudio. 
+El desarrollo de todos los paquetes incluidos en `tidyverse` sigue las reglas principales del [manifiesto](https://mran.microsoft.com/web/packages/tidyverse/vignettes/manifesto.html) de [The tidy tools](https://mran.microsoft.com/web/packages/tidyverse/vignettes/manifesto.html) .
+
+Según Wickham:
+
+> El tidyverse es un conjunto de paquetes que funcionan en **armonía** porque
+ comparten representaciones de datos comunes y diseño de API. Si tuviera que traducir tidyverse sería algo como una 
+ ***diversidad ordenada***. El paquete **tidyverse** está diseñado para facilitar la instalación y carga de los 
+paquetes principales desde el tidyverse en un solo comando.  El mejor lugar para aprender sobre todos los paquetes en el
+tidyverse y cómo encajan en un universo armónico o en un flujo de tranajo ordenado es en libro
+[R for Data Science](https://r4ds.had.co.nz/).
+
+---
+
+# Principios Básicos
+
+
+1. Reutilización de estructuras de datos existentes
+
+--
+
+2. Construye funciones simples para resolver tareas complejas con el uso de la pipa %>%
+
+--
+
+3. Adopta la programación funcional
+
+--
+
+4. Diseñado para que los humanos lo entiendan lo usen
+
+
+---
+
+# Reutilización de estructuras de datos existentes
+
+Al programar en R se puede sacar ventaja de las estructuras de datos que maneja este lenguaje.
+
+En especial de los dataframes, listas y vectores.
+
+Existen recientemente estructuras derivadas de estos como son lso **tibble** y los **data.table**. E incluso hay
+paquetes que generan sus propios formatos para manipular datos. Si bien esto puede ser útil en casos especificos
+la mejor opción en R es utilizar las estructuras consolidadas en el lenguaje.
+
+---
+
+# Construye funciones simples para resolver tareas complejas con el uso de la pipa %>%
+
+> No importa cuán complejas y pulidas sean las operaciones individuales, a menudo es la calidad del **pegamento**
+> lo que determina más directamente el poder del sistema.
+>
+> *- Hal Abelson*
+
+---
+# Adopta la programación funcional
+
+Si bien **R** es un lenguaje que puede programarse creando objetos y clases. R brilla cuando se prefiere una
+programación funcional.
+
+Una programación funcional le da prioridad a las funciones lo que favorece una logica directa.
+
+Las funciones ademas se adaptan a la _pipe_ sacando provecho de la concatenación de las mismas.
+
+En R se recomienda el uso de funciones que abstraen a las clasicas estructuras de control de iteraciones como 
+el bucle **loop**.
+
+
+---
+
+# Diseñado para que los humanos lo entiendan lo usen
+
+> No importa cuán complejas y pulidas sean las operaciones individuales, a menudo es la calidad del **pegamento**
+> lo que determina más directamente el poder del sistema.
+>
+> *- Hal Abelson*
