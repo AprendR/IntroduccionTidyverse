@@ -67,8 +67,12 @@ en memoría para su uso dentro de una sesión o script.
 
 Los paquetes en R se instalan con un solo comando que descarga los paquetes de un repositorio **CRAN**.
 
+<br>
+
 > CRAN : Es un conjunto de servidores que mantienen versiones 
 > actualizadas de código y documentación <sup>3</sup>
+
+<br>
 
 Por lo tanto la instalación de cualquier paquete en R se puede hacer con un comando:
 
@@ -116,7 +120,7 @@ background-image: url(img/tidyverse_hexs.png)
 # Tidyverse según el manifiesto de Hadley Wickham
 
 [Tidyverse](https://github.com/tidyverse) es la forma rápida y elegante de convertir  `R` base en una herramienta mejorada, 
-rediseñada por Hadley Wickham / Rstudio.
+rediseñada por Hadley Wickham y un equipo muy talentoso.
 
 El desarrollo de todos los paquetes incluidos en `tidyverse` sigue las reglas principales del [manifiesto](https://mran.microsoft.com/web/packages/tidyverse/vignettes/manifesto.html) de [The tidy tools](https://mran.microsoft.com/web/packages/tidyverse/vignettes/manifesto.html).
 
@@ -124,9 +128,9 @@ El desarrollo de todos los paquetes incluidos en `tidyverse` sigue las reglas pr
 Según Wickham:
 
 > El tidyverse es un conjunto de paquetes que funcionan en **armonía** porque
- comparten representaciones de datos comunes y diseño de API. Si tuviera que traducir tidyverse sería algo como una 
- ***diversidad ordenada***. El paquete **tidyverse** está diseñado para facilitar la instalación y carga de los 
-paquetes principales desde el tidyverse en un solo comando.
+> comparten representaciones de datos comunes y diseño de API. 
+> El paquete **tidyverse** está diseñado para facilitar la instalación y carga de los 
+> paquetes principales desde el tidyverse en un solo comando.
 >
 >[R for Data Science](https://r4ds.had.co.nz/).
 
@@ -148,7 +152,7 @@ background-image: url(img/tidyverse_hexs.png)
 
 --
 
-4. Diseñado para que los humanos lo entiendan lo usen
+4. Diseñado para que los humanos lo entiendan y lo usen
 
 --
 
@@ -173,20 +177,6 @@ Las estructuras mas utilizadas en **R** son:
 Existen recientemente estructuras derivadas del **dataframe** como son los **tibble** y los **data.table**.
 E incluso hay paquetes que generan sus propios formatos para transformar datos. Si bien estos puede ser útil en casos
 específicos la mejor opción en R es utilizar las estructuras consolidadas en el lenguaje.
-
----
-# Adopta la programación funcional
-
-Si bien **R** es un lenguaje que puede programarse creando objetos y clases. R brilla cuando se prefiere una
-programación funcional.
-
-Una programación funcional le da prioridad a las funciones lo que favorece una logica directa.
-
-Las funciones ademas se adaptan a la _pipe_ sacando provecho de la concatenación de las mismas.
-
-En R se recomienda el uso de funciones que abstraen a las clasicas estructuras de control de iteraciones como 
-el bucle **loop**.
-
 
 ---
 
@@ -228,13 +218,27 @@ mi_lista <- list(
 ```
 
 ---
+# Adopta la programación funcional
+
+Si bien **R** es un lenguaje que puede programarse creando objetos y clases. R brilla cuando se prefiere una
+programación funcional.
+
+Una programación funcional le da prioridad a las funciones lo que favorece una logica directa.
+
+Las funciones ademas se adaptan a la _pipe_ sacando provecho de la concatenación de las mismas.
+
+En R se recomienda el uso de funciones que abstraen a las clasicas estructuras de control de iteraciones como 
+el bucle **loop**.
+
+
+---
 class: inverse
 background-image: url(img/maggrit_bckgr.png)
 
 # Funciones simples para tareas complejas
 ### El operador pipe %>%
 
-
+<br>
 
 > No importa cuán complejas y pulidas sean las operaciones individuales, a menudo es la calidad del **pegamento**
 > lo que determina más directamente el poder del sistema.
@@ -245,7 +249,7 @@ background-image: url(img/maggrit_bckgr.png)
 background-image: url(img/maggrit_bckgr.png)
 
 # Funciones simples para tareas complejas con el operador pipe
-### %>%
+### El operador pipe %>%
 
 Entre las ventajas de usar la sintaxis y estructura de tidyverse esta el uso del operador **pipe** (**%>%**).
 Este operador permite encadenar una serie de comandos, analogo a los pasos de una receta, que empiezan por la entrada
@@ -262,7 +266,7 @@ mtcars %>%
 background-image: url(img/maggrit_bckgr.png)
 
 # Funciones simples para tareas complejas con el operador pipe
-### %>%
+### El operador pipe %>%
 
 Cabe mencionar que para guardar el resultado al inicio de la secuencia se debe asignar a una variable.
 
@@ -274,11 +278,117 @@ mi_nueva_vairable <- mtcars %>%
 ```
 
 ---
+background-image: url(img/maggrit_bckgr.png)
+
+# Ejemplo
+### El operador pipe %>%
+
+`f(x)` puede ser escrito así `x %>% f` lo que es igual a `argumento %>% función()`
+donde `f` es una función que acepta varios argumentos, el argumento es `x`
+
+Función normal
+
+.pull-left[
+#### Función normal
+
+```{r}
+mean(1:10)
+```
+]
+
+
+
+.pull-right[
+#### Sintaxis Tidy
+
+```{r}
+1:10 %>% mean()
+```
+]
+
+---
+background-image: url(img/maggrit_bckgr.png)
+
+# Ejemplo
+### El operador pipe %>%
+
+Una función con dos argumentos: argumento1 %>% función(argumento2)
+
+.pull-left[
+#### Función normal
+
+```{r}
+round(pi, 6)
+```
+]
+
+
+
+.pull-right[
+#### Sintaxis Tidy
+
+```{r}
+pi %>% round(6)
+```
+]
+
+---
 class: inverse
 
-# Diseñado para que los humanos lo entiendan lo usen
+# Diseñado para que los humanos lo entiendan
+
+<br>
 
 > Los programas deben estar escritos para que las personas los lean, y solo de manera incidental para que 
 > las computadoras los ejecuten.
 >
 > *- Hal Abelson*
+
+---
+
+# Diseñado para que los humanos lo entiendan
+
+Una base incluida con **R** es `mtcars` que contiene información del desempeño, cilindraje y otras medidas
+para diferentes marcas de autos:
+
+### Primeros renglones de dataset
+
+```{r}
+head(mtcars)
+```
+
+---
+
+# Diseñado para que los humanos lo entiendan
+
+Si quisieramos calcular la media de las variables mpg (millas por galón) y hp (poder-caballos de fuerza),
+pero sólo de los coches de 4 y 6 cilindros (cyl) y con un peso pequeño, menor a 3k lbs (w)...
+
+```{r}
+# 1) Seleccionamos las variables:
+mtcars_4variables <- select(mtcars, mpg, hp, cyl, wt)
+# 2) Filtramos aquellos carros (observaciones) que se van a procesar:
+mtcars_4_6cyl_w <- filter(mtcars_4variables, cyl != 8 & wt < 3.000)
+# 3) Agrupamos los datos porla variable para clasificar, i.e. cyl
+mtcars_2grupos <- group_by(mtcars_4_6cyl_w, cyl)
+# 4) calculamos la media de las dos variables: hp y mpg
+mtcars_media_mpg_hp <- summarize(mtcars_2grupos, mean(mpg), mean(hp))
+# 5) observamos el resultado
+mtcars_media_mpg_hp
+```
+
+
+---
+
+# Diseñado para que los humanos lo entiendan
+
+### Usando el comando pipe
+
+```{r}
+mtcars %>% 
+  select(mpg, hp, cyl, wt) %>% 
+  filter(cyl != 8 & wt < 3.000) %>% 
+  group_by(cyl) %>% 
+  summarize(mean(hp), mean(mpg))
+```
+

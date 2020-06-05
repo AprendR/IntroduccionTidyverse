@@ -66,8 +66,12 @@ en memoría para su uso dentro de una sesión o script.
 
 Los paquetes en R se instalan con un solo comando que descarga los paquetes de un repositorio **CRAN**.
 
+&lt;br&gt;
+
 &gt; CRAN : Es un conjunto de servidores que mantienen versiones 
 &gt; actualizadas de código y documentación &lt;sup&gt;3&lt;/sup&gt;
+
+&lt;br&gt;
 
 Por lo tanto la instalación de cualquier paquete en R se puede hacer con un comando:
 
@@ -134,7 +138,7 @@ background-image: url(img/tidyverse_hexs.png)
 # Tidyverse según el manifiesto de Hadley Wickham
 
 [Tidyverse](https://github.com/tidyverse) es la forma rápida y elegante de convertir  `R` base en una herramienta mejorada, 
-rediseñada por Hadley Wickham / Rstudio.
+rediseñada por Hadley Wickham y un equipo muy talentoso.
 
 El desarrollo de todos los paquetes incluidos en `tidyverse` sigue las reglas principales del [manifiesto](https://mran.microsoft.com/web/packages/tidyverse/vignettes/manifesto.html) de [The tidy tools](https://mran.microsoft.com/web/packages/tidyverse/vignettes/manifesto.html).
 
@@ -142,9 +146,9 @@ El desarrollo de todos los paquetes incluidos en `tidyverse` sigue las reglas pr
 Según Wickham:
 
 &gt; El tidyverse es un conjunto de paquetes que funcionan en **armonía** porque
- comparten representaciones de datos comunes y diseño de API. Si tuviera que traducir tidyverse sería algo como una 
- ***diversidad ordenada***. El paquete **tidyverse** está diseñado para facilitar la instalación y carga de los 
-paquetes principales desde el tidyverse en un solo comando.
+&gt; comparten representaciones de datos comunes y diseño de API. 
+&gt; El paquete **tidyverse** está diseñado para facilitar la instalación y carga de los 
+&gt; paquetes principales desde el tidyverse en un solo comando.
 &gt;
 &gt;[R for Data Science](https://r4ds.had.co.nz/).
 
@@ -166,7 +170,7 @@ background-image: url(img/tidyverse_hexs.png)
 
 --
 
-4. Diseñado para que los humanos lo entiendan lo usen
+4. Diseñado para que los humanos lo entiendan y lo usen
 
 --
 
@@ -191,20 +195,6 @@ Las estructuras mas utilizadas en **R** son:
 Existen recientemente estructuras derivadas del **dataframe** como son los **tibble** y los **data.table**.
 E incluso hay paquetes que generan sus propios formatos para transformar datos. Si bien estos puede ser útil en casos
 específicos la mejor opción en R es utilizar las estructuras consolidadas en el lenguaje.
-
----
-# Adopta la programación funcional
-
-Si bien **R** es un lenguaje que puede programarse creando objetos y clases. R brilla cuando se prefiere una
-programación funcional.
-
-Una programación funcional le da prioridad a las funciones lo que favorece una logica directa.
-
-Las funciones ademas se adaptan a la _pipe_ sacando provecho de la concatenación de las mismas.
-
-En R se recomienda el uso de funciones que abstraen a las clasicas estructuras de control de iteraciones como 
-el bucle **loop**.
-
 
 ---
 
@@ -250,13 +240,27 @@ mi_lista &lt;- list(
 ```
 
 ---
+# Adopta la programación funcional
+
+Si bien **R** es un lenguaje que puede programarse creando objetos y clases. R brilla cuando se prefiere una
+programación funcional.
+
+Una programación funcional le da prioridad a las funciones lo que favorece una logica directa.
+
+Las funciones ademas se adaptan a la _pipe_ sacando provecho de la concatenación de las mismas.
+
+En R se recomienda el uso de funciones que abstraen a las clasicas estructuras de control de iteraciones como 
+el bucle **loop**.
+
+
+---
 class: inverse
 background-image: url(img/maggrit_bckgr.png)
 
 # Funciones simples para tareas complejas
 ### El operador pipe %&gt;%
 
-
+&lt;br&gt;
 
 &gt; No importa cuán complejas y pulidas sean las operaciones individuales, a menudo es la calidad del **pegamento**
 &gt; lo que determina más directamente el poder del sistema.
@@ -267,7 +271,7 @@ background-image: url(img/maggrit_bckgr.png)
 background-image: url(img/maggrit_bckgr.png)
 
 # Funciones simples para tareas complejas con el operador pipe
-### %&gt;%
+### El operador pipe %&gt;%
 
 Entre las ventajas de usar la sintaxis y estructura de tidyverse esta el uso del operador **pipe** (**%&gt;%**).
 Este operador permite encadenar una serie de comandos, analogo a los pasos de una receta, que empiezan por la entrada
@@ -293,7 +297,7 @@ mtcars %&gt;%
 background-image: url(img/maggrit_bckgr.png)
 
 # Funciones simples para tareas complejas con el operador pipe
-### %&gt;%
+### El operador pipe %&gt;%
 
 Cabe mencionar que para guardar el resultado al inicio de la secuencia se debe asignar a una variable.
 
@@ -305,14 +309,168 @@ mi_nueva_vairable &lt;- mtcars %&gt;%
 ```
 
 ---
+background-image: url(img/maggrit_bckgr.png)
+
+# Ejemplo
+### El operador pipe %&gt;%
+
+`f(x)` puede ser escrito así `x %&gt;% f` lo que es igual a `argumento %&gt;% función()`
+donde `f` es una función que acepta varios argumentos, el argumento es `x`
+
+Función normal
+
+.pull-left[
+#### Función normal
+
+
+```r
+mean(1:10)
+```
+
+```
+## [1] 5.5
+```
+]
+
+
+
+.pull-right[
+#### Sintaxis Tidy
+
+
+```r
+1:10 %&gt;% mean()
+```
+
+```
+## [1] 5.5
+```
+]
+
+---
+background-image: url(img/maggrit_bckgr.png)
+
+# Ejemplo
+### El operador pipe %&gt;%
+
+Una función con dos argumentos: argumento1 %&gt;% función(argumento2)
+
+.pull-left[
+#### Función normal
+
+
+```r
+round(pi, 6)
+```
+
+```
+## [1] 3.141593
+```
+]
+
+
+
+.pull-right[
+#### Sintaxis Tidy
+
+
+```r
+pi %&gt;% round(6)
+```
+
+```
+## [1] 3.141593
+```
+]
+
+---
 class: inverse
 
-# Diseñado para que los humanos lo entiendan lo usen
+# Diseñado para que los humanos lo entiendan
+
+&lt;br&gt;
 
 &gt; Los programas deben estar escritos para que las personas los lean, y solo de manera incidental para que 
 &gt; las computadoras los ejecuten.
 &gt;
 &gt; *- Hal Abelson*
+
+---
+
+# Diseñado para que los humanos lo entiendan
+
+Una base incluida con **R** es `mtcars` que contiene información del desempeño, cilindraje y otras medidas
+para diferentes marcas de autos:
+
+### Primeros renglones de dataset
+
+
+```r
+head(mtcars)
+```
+
+```
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+```
+
+---
+
+# Diseñado para que los humanos lo entiendan
+
+Si quisieramos calcular la media de las variables mpg (millas por galón) y hp (poder-caballos de fuerza),
+pero sólo de los coches de 4 y 6 cilindros (cyl) y con un peso pequeño, menor a 3k lbs (w)...
+
+
+```r
+# 1) Seleccionamos las variables:
+mtcars_4variables &lt;- select(mtcars, mpg, hp, cyl, wt)
+# 2) Filtramos aquellos carros (observaciones) que se van a procesar:
+mtcars_4_6cyl_w &lt;- filter(mtcars_4variables, cyl != 8 &amp; wt &lt; 3.000)
+# 3) Agrupamos los datos porla variable para clasificar, i.e. cyl
+mtcars_2grupos &lt;- group_by(mtcars_4_6cyl_w, cyl)
+# 4) calculamos la media de las dos variables: hp y mpg
+mtcars_media_mpg_hp &lt;- summarize(mtcars_2grupos, mean(mpg), mean(hp))
+# 5) observamos el resultado
+mtcars_media_mpg_hp
+```
+
+```
+## # A tibble: 2 x 3
+##     cyl `mean(mpg)` `mean(hp)`
+##   &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+## 1     4        27.3       83.6
+## 2     6        20.6      132.
+```
+
+
+---
+
+# Diseñado para que los humanos lo entiendan
+
+### Usando el comando pipe
+
+
+```r
+mtcars %&gt;% 
+  select(mpg, hp, cyl, wt) %&gt;% 
+  filter(cyl != 8 &amp; wt &lt; 3.000) %&gt;% 
+  group_by(cyl) %&gt;% 
+  summarize(mean(hp), mean(mpg))
+```
+
+```
+## # A tibble: 2 x 3
+##     cyl `mean(hp)` `mean(mpg)`
+##   &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;
+## 1     4       83.6        27.3
+## 2     6      132.         20.6
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
