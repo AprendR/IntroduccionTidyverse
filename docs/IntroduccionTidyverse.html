@@ -456,6 +456,12 @@ mean(log(diff(cumsum(sort((mtcars$wt))))))
 
 # Diseñado para humanos
 
+&lt;iframe width='100%' height='400' src='https://rdrr.io/snippets/embed/?code=mean(log(diff(cumsum(sort((mtcars%24wt))))))' frameborder='0'&gt;&lt;/iframe&gt;
+
+---
+
+# Diseñado para humanos
+
 Ahora, lo mismo con el operador **%&gt;%**
 
 
@@ -472,6 +478,11 @@ mtcars$wt %&gt;%
 ## [1] 1.144566
 ```
 
+---
+
+# Diseñado para humanos
+
+&lt;iframe width='100%' height='300' src='https://rdrr.io/snippets/embed/?code=library(tidyverse)%0Amtcars%24wt%20%25%3E%25%20%0A%20%20sort()%20%25%3E%25%20%0A%20%20cumsum()%20%25%3E%25%20%0A%20%20diff()%20%25%3E%25%20%0A%20%20log()%20%25%3E%25%20%0A%20%20mean()' frameborder='0'&gt;&lt;/iframe&gt;
 
 ---
 
@@ -502,6 +513,11 @@ mtcars_media_mpg_hp
 ## 2     6        20.6      132.
 ```
 
+---
+
+# Diseñado para humanos
+
+&lt;iframe width='100%' height='300' src='https://rdrr.io/snippets/embed/?code=library(tidyverse)%0Amtcars_4variables%20%3C-%20select(mtcars%2C%20mpg%2C%20hp%2C%20cyl%2C%20wt)%0Amtcars_4_6cyl_w%20%3C-%20filter(mtcars_4variables%2C%20cyl%20!%3D%208%20%26%20wt%20%3C%203.000)%0Amtcars_2grupos%20%3C-%20group_by(mtcars_4_6cyl_w%2C%20cyl)%0Amtcars_media_mpg_hp%20%3C-%20summarize(mtcars_2grupos%2C%20mean(mpg)%2C%20mean(hp))%0Amtcars_media_mpg_hp' frameborder='0'&gt;&lt;/iframe&gt;
 
 ---
 
@@ -525,6 +541,12 @@ mtcars %&gt;%
 ## 1     4       83.6        27.3
 ## 2     6      132.         20.6
 ```
+
+---
+
+# Diseñado para humanos
+
+&lt;iframe width='100%' height='300' src='https://rdrr.io/snippets/embed/?code=library(tidyverse)%0Amtcars%20%25%3E%25%20%0A%20%20select(mpg%2C%20hp%2C%20cyl%2C%20wt)%20%25%3E%25%20%0A%20%20filter(cyl%20!%3D%208%20%26%20wt%20%3C%203.000)%20%25%3E%25%20%0A%20%20group_by(cyl)%20%25%3E%25%20%0A%20%20summarize(mean(hp)%2C%20mean(mpg))' frameborder='0'&gt;&lt;/iframe&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
