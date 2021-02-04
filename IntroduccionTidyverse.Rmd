@@ -6,7 +6,7 @@ institute: "Aprendr"
 
 output:
   xaringan::moon_reader:
-    css: ["libs/custom.css", default, middlebury, middlebury-fonts]
+    css: ["libs/custom_xaringan.css", default, middlebury, middlebury-fonts]
     nature:
       highlightStyle: github
       highlightLines: true
@@ -16,7 +16,9 @@ knit: (function(inputFile, encoding) {
     inputFile,
     encoding = encoding, 
     output_dir = "docs",
-    output_options=list(self_contained=FALSE, lib_dir="docs/libs"))})
+    output_file = 'IntroduccionTidyverse.html',
+    output_options=list(self_contained=FALSE, lib_dir="docs/libs"
+  ))})
 ---
 
 ```{r setup, include=FALSE}
